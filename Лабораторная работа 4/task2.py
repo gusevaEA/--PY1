@@ -1,13 +1,15 @@
-def get_count_char(str_, abc_letter=None):  # TODO посчитать количество каждой буквы в строке в аргументе str_
-    str_ = "".join(str_.lower().split())
+def get_count_char(str_):  # TODO посчитать количество каждой буквы в строке в аргументе str_
+    str_ = "".join(str_.split())
+    str_ = str_.lower()
+    dict_ = {}
+    for letter in str_:
+        if letter.isalpha():
+            if letter in dict_:
+                dict_[letter] += 1
+            else:
+                dict_[letter] = 1
 
-    abc_ = {}
-    for letter, in str_:
-        if letter.isalpha() in abc_:
-            abc_[letter] += 1
-    else:
-        abc_[letter] = 1
-    return abc_letter
+    return dict_
 
 
 main_str = """Данное предложение будет разбиваться на отдельные слова. 
